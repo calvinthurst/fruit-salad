@@ -3,15 +3,15 @@ import { Player } from "../Models/Player.js"
 import { EventEmitter } from "../Utils/EventEmitter.js"
 
 class PlayersServices {
-  submitAnswer(fruit) {
-    console.log(fruit)
+  submitAnswer(fruitData) {
+    console.log(fruitData)
     let player = appState.activePlayer
     let activefruit = appState.activeFruit
-    if (fruit = activefruit) {
+    if (fruitData.fruits == activefruit) {
       console.log('nice')
       player.score += 1
-      console.log(player)
     } else console.log("try again")
+    appState.emit('activePlayer')
   }
 
   createPlayer(formData) {

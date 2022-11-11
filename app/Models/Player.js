@@ -29,7 +29,7 @@ export class Player {
     <div class="row card text-center" >
     <div class="col-10" id="fruit"></div>
     <form class="col-10" onsubmit="app.playersController.submitAnswer()">
-      <input type="text" name="fruit">
+      <input type="text" name="fruits">
     </form>
   </div>
     `

@@ -41,14 +41,17 @@ export class PlayersController {
   setActive(playerId) {
     playersServices.setActive(playerId)
     this.randomFruit()
-    console.log(appState.activeFruit)
+    // console.log(appState.activeFruit)
   }
 
   submitAnswer() {
     window.event.preventDefault()
-    // const fruit = window.event.target
-    // let fruitData = getFormData(fruit)
-    playersServices.submitAnswer(fruit)
+    const fruit = window.event.target
+    let fruitData = getFormData(fruit)
+    console.log(fruitData)
+    console.log(appState.activeFruit)
+    playersServices.submitAnswer(fruitData)
+
     this.randomFruit()
   }
 
