@@ -37,31 +37,32 @@
           <div class="row justify-content-center">
             <div class="col-10" id="active">
             </div>
-            <div class="col-8" id="fruit">
-              <!-- <div class="row card text-center">
+            <!-- <div class="col-8" id="fruit"> -->
+            <!-- <div class="row card text-center">
                 <div class="col-10">banana</div>
                 <form class="col-10" onsubmit="app.playersController.setFruit()">
                   <input type="text" name="fruit">
                 </form>
               </div> -->
-            </div>
           </div>
         </div>
-        <div class="col-5">
-          <div class="col-10 card">
-            <div id="players">
-              <!-- <div class="row">
+    </div>
+    <div class="col-5">
+      <div class="col-10 card">
+        <div id="players">
+          <!-- <div class="row">
               <div class="col-1">0</div>
               <div class="col-4">calvin</div>
               <div class="col-3">highscore: 1</div>-->
-            </div>
-            <form action="" onsubmit="app.playersController.createPlayer()">
-              <input type="text" name="name">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
+          <div onsubmit="app.playersController.submitAnswer()"></div>
         </div>
-      </SEction>
+        <form action="" onsubmit="app.playersController.createPlayer()">
+          <input type="text" name="name">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    </SEction>
     </div>
     </div id='app'>
   </main>
