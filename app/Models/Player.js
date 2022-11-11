@@ -26,8 +26,14 @@ export class Player {
     </div>
     `
   }
-  get notActiveTemplate() {
-    return ``
+  get fruitTemplate() {
+    return `<div class="row card text-center">
+    <div class="col-10">banana</div>
+    <form class="col-10" >
+      <input type="text" name="fruit">
+    </form>
+  </div>
+  `
   }
-
+  // onsubmit="app.playersController.enterFruit()"
 }

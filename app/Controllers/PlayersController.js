@@ -13,6 +13,10 @@ function _drawActive() {
   console.log(active)
   setHTML(`active`, active.ActiveTemplate)
 }
+function _drawFruit() {
+  let activeFruit = appState.activeFruit
+  setHTML('fruit', activeFruit.fruitTemplate)
+}
 
 
 export class PlayersController {
@@ -35,6 +39,7 @@ export class PlayersController {
   setActive(playerId) {
     playersServices.setActive(playerId)
     this.randomFruit()
+    _drawFruit()
   }
 
   setActiveFruit() {
