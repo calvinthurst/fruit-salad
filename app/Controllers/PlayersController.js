@@ -2,6 +2,7 @@ import { appState } from "../AppState.js";
 import { playersServices } from "../Services/PlayersServices.js";
 import { getFormData } from "../Utils/FormHandler.js";
 import { setHTML, setText } from "../Utils/Writer.js";
+import { Player } from "../Models/Player.js"
 
 function _drawPlayers() {
   let template = ''
@@ -11,11 +12,11 @@ function _drawPlayers() {
 function _drawActive() {
   let active = appState.activePlayer
   console.log(active)
-  setHTML(`active`, active.ActiveTemplate)
+  setHTML('active', active.ActiveTemplate)
 }
 function _drawFruit() {
-  let activeFruit = appState.activeFruit
-  setHTML('fruit', activeFruit.fruitTemplate)
+  setText('fruit', appState.activeFruit)
+
 }
 
 
@@ -24,6 +25,7 @@ export class PlayersController {
     console.log('hey');
     appState.on('players', _drawPlayers);
     appState.on('activePlayer', _drawActive);
+    appState.on('activeFruit', _drawFruit)
     _drawPlayers()
   }
 
@@ -39,19 +41,24 @@ export class PlayersController {
   setActive(playerId) {
     playersServices.setActive(playerId)
     this.randomFruit()
-    _drawFruit()
+    console.log(appState.activeFruit)
   }
 
-  setActiveFruit() {
-    playersServices.setActiveFruit()
+  submitAnswer() {
+    window.event.preventDefault()
+    // const fruit = window.event.target
+    // let fruitData = getFormData(fruit)
+    playersServices.submitAnswer(fruit)
+    this.randomFruit()
   }
+
+  // setActiveFruit() {
+  //   playersServices.setActiveFruit()
+  // }
 
   randomFruit() {
     let rando = appState.fruits[Math.floor(Math.random() * appState.fruits.length)]
-    // setActiveFruit(rando)
     appState.activeFruit = rando
-    // rando = appState.activeFruit
-    console.log(appState.activeFruit);
   }
 
 

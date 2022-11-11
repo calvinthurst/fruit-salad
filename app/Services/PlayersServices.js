@@ -3,6 +3,17 @@ import { Player } from "../Models/Player.js"
 import { EventEmitter } from "../Utils/EventEmitter.js"
 
 class PlayersServices {
+  submitAnswer(fruit) {
+    console.log(fruit)
+    let player = appState.activePlayer
+    let activefruit = appState.activeFruit
+    if (fruit = activefruit) {
+      console.log('nice')
+      player.score += 1
+      console.log(player)
+    } else console.log("try again")
+  }
+
   createPlayer(formData) {
     console.log('service connected')
     const newPlayer = new Player(formData)
@@ -13,10 +24,6 @@ class PlayersServices {
   setActive(playerId) {
     const activePlayer = appState.players.find(p => p.id == playerId)
     appState.activePlayer = activePlayer
-    console.log(appState.activePlayer)
-  }
-  setActiveFruit() {
-    appState.fruits
   }
 
 }

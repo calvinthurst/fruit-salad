@@ -1,3 +1,4 @@
+import { appState } from "../AppState.js";
 import { generateId } from "../Utils/generateId.js";
 
 export class Player {
@@ -24,16 +25,24 @@ export class Player {
     <div class="col-2">${this.name}</div>
     <div class="col-2">SCORE: ${this.score}</div>
     </div>
-    `
-  }
-  get fruitTemplate() {
-    return `<div class="row card text-center">
-    <div class="col-10">banana</div>
-    <form class="col-10" >
+    <div class="col-8">
+    <div class="row card text-center" >
+    <div class="col-10" id="fruit"></div>
+    <form class="col-10" onsubmit="app.playersController.submitAnswer()">
       <input type="text" name="fruit">
     </form>
   </div>
-  `
+    `
   }
+  // get fruitTemplate() {
+  //   return `
+  // <div class="row card text-center">
+  //   <div class="col-10">banana</div>
+  //   <form class="col-10">
+  //     <input type="text" name="fruit">
+  //   </form>
+  // </div>
+  // `
+  // }
   // onsubmit="app.playersController.enterFruit()"
 }
